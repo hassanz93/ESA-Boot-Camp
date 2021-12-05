@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Enter Marks</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>th, td { border: 1px solid black; padding: 2px;}</style>
+    <title>Enter Marks</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+    <!-- HTML code for body -->
+    <h1>Enter Student's Marks</h1>
+    <input type="value" id="name" placeholder="Enter Full Name"><br>
+    <input type="value" id="marks" placeholder="Number of Courses"><br>
+
+    <p><button type="button" onclick="courses()">Add No. of Courses</button></p>
+
+    <button type="button" onclick="submit_marks()">Submit</button>
+    <button type="button" onclick="ClearFields()">Clear</button>
+    <div id="demo"></div>
+
+
+    <script>
+
+      function courses() {
+        const num_marks = parseInt(document.getElementById('marks').value); // from input determine how many courses
+        const container = document.createElement('div');                    // container will be linked to <div> in body
+        container.classList.add('container');                               // add <container> to add gardes to temporary list
+        for (let i = 0; i < num_marks; i++) {                              // for loop
+          const input = document.createElement("input");                   // create text box
+          input.setAttribute('type', 'text');                              // give type text
+          input.setAttribute('id', `grade-${i}`);                          // give id grade-"i"
+          input.setAttribute('placeholder', 'Enter Grade' );               // give placeholder Enter Grade:
+          input.classList.add('grade');                                    // add grade for each subject
+          container.appendChild(input);                                    // input 
+        }
+        document.body.appendChild(container);                              // takes to the end of the container
+      }
+
+      function submit_marks() {
+        const gradeFields = document.querySelectorAll('.grade');          // returns all elements of gradesa in the document that matches with grade
+       
+        const gradeTotal = [...gradeFields].reduce((acc, cur) => acc + Number(cur.value), 0);  // determine total
+
+        const gradeAvg = gradeTotal / gradeFields.length;                // determine average from grade total
+        const fullName = document.getElementById('name').value;          // get name from input boxt with id name
+        
+        var gradeRes;                                                    // grade to determine if passed, failed or inbetween
+        if (gradeAvg>=0 && gradeAvg<=49) {
+       gradeRes = 'Unfortunately you failed!';
+                                        } 
+        else if(gradeAvg>=50 && gradeAvg<=60){
+        gradeRes = 'Congratulations, you passed but you have to work better';
+                                             }
+       else if(gradeAvg>=60 && gradeAvg<=80){
+    gradeRes = 'Congratulations, you succeeded';
+                                            }
+       else if(gradeAvg>=80 && gradeAvg<=100){
+      gradeRes = 'Congratulations, you’ve achieved an excellent score!';
+                                            }
+       else{
+      gradeRes = "Invalid or Failed";
+           }
+       
+
+        const table = document.createElement('table');                  // create table
+        table.classList.add('resultsTable');                            // add results to the table
+        
+
+        const tableHeaderRow = document.createElement('tr');           // create element <tr>
+
+        const tableHeaderColName = document.createElement('th');       // create element <th>
+        tableHeaderColName.textContent = 'Name';                       // save Name inputed by user
+        tableHeaderRow.appendChild(tableHeaderColName);                // print cell with Name  
+
+        gradeFields.forEach((field, index) => {
+          const tableHeaderColSub = document.createElement('th');     // create element <th>
+          tableHeaderColSub.textContent = `Subject ${index + 1}`;    // prints sunject 
+          tableHeaderRow.appendChild(tableHeaderColSub);             // print cell with
+        });
+
+        const tableHeaderColTotal = document.createElement('th');   // create element <th>
+        tableHeaderColTotal.textContent = 'Total';                  // save string Total to the cell
+        tableHeaderRow.appendChild(tableHeaderColTotal);            // print cell with Total grade 
+
+        const tableHeaderColAvg = document.createElement('th');    // create element <td>
+        tableHeaderColAvg.textContent = 'Average';                 // save string average
+        tableHeaderRow.appendChild(tableHeaderColAvg);             // print cell with average grade
+
+        const tableHeaderColRes = document.createElement('th');    // create element <td>
+        tableHeaderColRes.textContent = 'Result';                 // save string results 
+        tableHeaderRow.appendChild(tableHeaderColRes);             // print cell with average grade
+
+        const tableResultsRow = document.createElement('tr');      // create element <tr> for creating new row
+
+        const tableResultsColName = document.createElement('td');   // create element <td>
+        tableResultsColName.textContent = fullName;                 // save Name inputed by user
+        tableResultsRow.appendChild(tableResultsColName);           // print cell with inputed Name 
+
+        gradeFields.forEach((field, index) => {
+          const tableResultsColSub = document.createElement('td');  // create element <td>
+          tableResultsColSub.textContent = field.value;             // save grades inputed by user depending on number of subjects
+          tableResultsRow.appendChild(tableResultsColSub);          // print cell with inputed grades on the same row
+        });
+
+        const tableResultsColTotal = document.createElement('td');  // create element <td>
+        tableResultsColTotal.textContent = gradeTotal;              // save Total grade calculated in for loop
+        tableResultsRow.appendChild(tableResultsColTotal);          // print cell with total grade on the same row
+
+        const tableResultsColAvg = document.createElement('td');   // create element <td>
+        tableResultsColAvg.textContent = gradeAvg;                 // save average grade calculated in for loop
+        tableResultsRow.appendChild(tableResultsColAvg);           // print cell with average 
+
+        const tableResultColRes = document.createElement('td');      // create element <td>
+        tableResultColRes.textContent = gradeRes;                 // save average grade calculated in for loop
+        tableResultsRow.appendChild(tableResultColRes);           // print cell with average 
+
+        table.appendChild(tableHeaderRow);                        // print everything related to tableHeaderRow = first row
+        table.appendChild(tableResultsRow);                       // print everything related to tableResultsRow = Second row
+        document.body.appendChild(table);                        //  print the whole table
+      }
+
+      // function clear all inputs
+      function ClearFields() { 
+        document.getElementById('name').value = '';                 // clear input box with empty string
+        document.getElementById('marks').value = '';                // clear input box with empty string
+        const container = document.querySelector('.container');     // clear input boxes for the grades with empty strings
+        while (container.lastChild) {                               // take last child element of the parent container
+          container.removeChild(container.lastChild);              //  remove containers with clear is clicked
+        }
+      }
+    </script>
+  </body>
+</html>

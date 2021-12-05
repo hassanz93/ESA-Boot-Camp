@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revision</title>
+    <link rel="stylesheet" href="./app.css">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="mt-5 p-3 bg-success text-white rounded" id="home">
+            <div class="row">
+                <div class="col-sm-8">
+                    <form action="/action_page.php" style="max-width:500px;margin:auto">
+                        <h2>Student Average</h2>
+                        <input class="form-control mb-2" type="text" placeholder="First name" id="first_name" name="first_name">
+                        <input class="form-control mb-2" type="text" placeholder="Last name" id="last_name" name="last_name">
+                        <input class="form-control mb-5" type="text" placeholder="average" id="average" name="average">
+
+                        <!-- <div class="input-group">
+                            <input type="file" class="form-control mb-3" id="img_file" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        </div> -->
+                        <button type="button" id="add_student" class="btn btn-danger">Add Student</button>
+                        <button type="button" id="avg_student" class="btn btn-danger">Avg of/for all Students</button>
+                    </form>
+                </div>
+                <div class="col-sm-4">
+                    <div id="details"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

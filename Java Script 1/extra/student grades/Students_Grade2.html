@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Enter Marks</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="style.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script >
+
+    var inp = []; var average_mark; var final_remark; var numb_crs;
+    
+    function removeElement(){                                // function to remove text boxes
+    let d = document.getElementById("main_body");            // chose the parent that containes the text boxes
+    let items = d.querySelectorAll('input')                  // chose the input type from the parent body 'main_body'
+    items.forEach(function(item) {                           // allows to show hidden input type boxes
+        item.style.display = 'inline';              
+});
+    numb_crs = parseInt(document.getElementById("numb").value); // take numb of courses from text box with Id 'numb'
+    for (let i = 11; i > (numb_crs+1); i--){                    // depening on the nub_crs for loop the text boxes that will hide
+        document.getElementById("add" +i).style.display="none"  // remove the text boxes by displaying them as none and hidng them
+    //d.removeChild(document.getElementById("add" +i));
+}
+    }
+
+    function input_admin() {   // function to input and save data as inp[]
+        
+     var total_mark = 0;                                                    // assign total mark to 0 as to restart to 0 for every new student
+    numb_crs = parseInt(document.getElementById("numb").value);             // take from text box number of subjects
+     inp[0]=document.getElementById("add1").value;                          // insert student name to inp[0]
+     for (var i = 1; i <= numb_crs; i++) {                                  // for loop for the number of subjects chosen
+        inp[i]= parseInt(document.getElementById("add" + (i +1)).value);    // insert marks for the subjects
+        total_mark = total_mark + inp[(i)];  } 
+        for (i = 1; i <= 11; i++){                                          // for loop for the number of subjects not chosen
+            if(i> numb_crs)                                                
+            inp[i] = "N/A";                                                 // print N/A for subjects not taken by students
+        }
+        average_mark = total_mark / numb_crs;  
+        inp[11]= total_mark; 
+        inp[12]= average_mark.toFixed(2); 
+        if (average_mark>=0 && average_mark<=49) {
+            final_remark = `<div style="padding:0.5rem; margin:0.1rem;" class="alert alert-danger" role="alert">
+                             Unfortunately you failed!`; 
+        } 
+        else if(average_mark>=50 && average_mark<=59){
+            final_remark = `<div style="padding:0.5rem; margin:0.1rem;" class="alert alert-warning" role="alert">
+                             Congratulations, you passed but you have to work better`;
+        }
+        else if(average_mark>=60 && average_mark<=79){
+            final_remark = `<div style="padding:0.5rem; margin:0.1rem;" class="alert alert-primary" role="alert">
+                             Congratulations, you succeeded`;
+            
+        }
+        else if(average_mark>=80 && average_mark<=100){
+            final_remark = `<div style="padding:0.5rem; margin:0.1rem;" class="alert alert-success" role="alert">
+                             Congratulations, you’ve achieved an excellent score!`;
+        }
+        else{
+            final_remark = `<div style="padding:0.5rem; margin:0.1rem;" class="alert alert-danger" role="alert">
+                             Invalid or Failed Input!`; 
+            }
+            inp[13]= final_remark; 
+                           } 
+
+    function insertRow() {  //function to insert rows and all the info added to the function input_admin()
+    input_admin();
+    numb_crs = parseInt(document.getElementById("numb").value);
+    var table1 = document.getElementById("table1");
+    var row1 = table1.insertRow(1);          // insert row below table header
+    var cell1 = row1.insertCell(0);          // insert name at first cell
+    cell1.innerHTML = inp[0];     
+    for (i = 1; i < numb_crs; i++) {
+         var cell1 = row1.insertCell(i);     // insert cells
+         cell1.innerHTML = inp[i];           // insert marks for following cells in the for loop
+                             }
+        for (i = numb_crs; i < 11; i++) {
+         var cell1 = row1.insertCell(i);     // insert cells
+         cell1.innerHTML = inp[i];           // insert N/A for following cells in the for loop
+                             }
+        for (i = 11; i < 14; i++) {
+        var cell1 = row1.insertCell(i);      // insert cells
+         cell1.innerHTML = inp[i];           // insert the other text for following cells in the for loop
+        }
+    }
+
+    function clearFields() {                                   // function to clear the fields inside text boxes
+        var conatiner;
+        for (i=1; i<12; i++){
+    document.getElementById('add' +i).value = '';  }           // place empty string inside text boxes 
+    const container = document.querySelector('.container');    // clear input boxes for the grades with empty strings
+    while (container.lastChild) {                              // take last child element of the parent container
+          container.removeChild(container.lastChild);          // remove containers with clear is clicked
+                                }
+      }
+            
+    function deleteRow() {                                     // function to delete rows
+        chose_row = document.getElementById("delete").value;
+        document.getElementById("table1").deleteRow(chose_row);
+                                   }
+</script>
+</head>
+
+<body >
+	<div class="col-14">
+        <div class="card">
+            <div class="card-body" id = "main_body">
+                <h4 class="card-title" >Student Information</h4>
+                <h6 class="card-subtitle">Please Enter the name and marks of the student</h6>
+                <br>
+                <input type="number" min="1" max="10" id="numb" name="myname"  placeholder="Nbr of Courses: ">
+                <button type="button" onclick="removeElement()">Nbr of courses</button>
+                <br>
+                <br>
+                <input type="text" id="add1" name="myname"  placeholder="Full Name">
+                <input type="number" min="0" max="100" id="add2" name="myname" placeholder="Subject1">
+                <input type="number" min="0" max="100" id="add3" name="myname" placeholder="Subject2">
+                <input type="number" min="0" max="100" id="add4" name="myname" placeholder="Subject3">
+                <input type="number" min="0" max="100" id="add5" name="myname" placeholder="Subject4">
+                <input type="number" min="0" max="100" id="add6" name="myname" placeholder="Subject5">
+                <input type="number" min="0" max="100" id="add7" name="myname" placeholder="Subject6">
+                <input type="number" min="0" max="100" id="add8" name="myname" placeholder="Subject7">
+                <input type="number" min="0" max="100" id="add9" name="myname" placeholder="Subject8">
+                <input type="number" min="0" max="100" id="add10" name="myname" placeholder="Subject9">
+                <input type="number" min="0" max="100" id="add11" name="myname" placeholder="Subject10">
+                
+                <button type="button" onclick="insertRow()">Add Row</button>
+                <button type="button" onclick="clearFields()">Clear Fields</button>
+                <br>
+                <br>
+                <input type="number" min="1" id="delete" name="myname" placeholder="Row to Delete">
+                <button type="button" onclick="deleteRow()">Delete Row</button>
+            </div>
+            <div class="table-responsive">
+                <table style="text-align: middle;" class="table" style="margin-top: 12px;" id= "table1"  >
+                    
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Subject 1</th>
+                            <th scope="col">Subject 2</th>
+                            <th scope="col">Subject 3</th>
+                            <th scope="col">Subject 4</th>
+                            <th scope="col">Subject 5</th>
+                            <th scope="col">Subject 6</th>
+                            <th scope="col">Subject 7</th>
+                            <th scope="col">Subject 8</th>
+                            <th scope="col">Subject 9</th>
+                            <th scope="col">Subject 10</th>
+                            <th scope="col">Total Grade</th>
+                            <th scope="col">Average Grade</th>
+                            <th scope="col">Final Remark</th>
+                        </tr>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

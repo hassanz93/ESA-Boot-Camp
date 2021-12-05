@@ -1,0 +1,138 @@
+nav {
+    display: inline-block;
+    transition: transform .5s;
+    width:80%;
+    box-shadow: 6px 6px rgba(131, 125, 125, 0.603);
+    display:block;
+    margin:auto;
+    margin-top: 3rem;
+    border-radius: 5px;
+}
+
+.form-inline {
+    margin-left:1rem;
+    padding-left: 1rem; 
+} 
+
+.container-fluid{
+    width: 85% !important;
+    height: 60%;
+    margin-top: 2rem;
+    background-color: blue;
+    box-shadow: 5px 5px grey;
+    border-radius: 5px;
+    transition: transform .3s;
+}
+
+#first-row{
+    margin-top:1rem;
+    margin-bottom:1rem;
+    margin-left: 2rem;
+
+}
+
+#first-row1{
+    margin-left: 2rem;
+    margin-top:1rem;
+    margin-bottom:1rem;
+    border: none;
+
+}
+
+#btn2{
+    width: 50px !important;
+   
+}
+
+.col {
+    background-color: chartreuse;
+    margin-left: 1.5rem;
+    border-radius: 4px;;
+    
+}
+
+#row1{
+    margin: 1rem;
+    padding: 0.6rem;
+    border-radius: 3px;;
+    font-weight: bold;
+    transition: transform .3s;
+}
+
+input[type=search] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 20px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    height:38px;
+  }
+  
+  input[type=search]:focus {
+    width: 75%;
+  }
+
+  .col{
+    margin-bottom:30px;
+    transition: transform .2s;
+  }
+
+  .col:hover,
+  #main-container:hover{
+    transform: scale(1.05);
+}
+
+#row1:hover{
+    box-shadow: 3px 3px grey;
+    text-shadow: 0px 2px grey ;
+}
+
+nav:hover {
+    transform: scale(1.15);
+}
+
+
+  #type2{
+      margin-right:1rem;
+  }
+
+  .searchedItemClass {
+    background-color: brown !important;
+    color: white !important;
+}
+
+.middleItemsList {
+    transition: transform .2s;
+    cursor: pointer;
+}
+
+.itemOutFromList {
+    opacity: 0;
+    transition: opacity 1s !important;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.element-css {
+    animation: show 500ms linear;
+}
+
+
+
+
+
+

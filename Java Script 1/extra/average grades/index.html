@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="#">
+    <link rel="stylesheet" href="./app.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="m-4 p-2 bg-info text-white rounded firstSection">
+            <div class="row">
+                <div class="col">
+                    <!-- <label class="form-check-label pb-2" for="inputFruitOrLegume">Fruits or Legumes</label> -->
+                    <input type="text" class="form-control m-1" id="inputFruitOrLegume" name="inputFruitOrLegume" placeholder="Fruits or Legumes">
+                </div>
+                <div class="col">
+                    <div class="form-check form-check-inline m-1" id="labelFruitOption">
+                        <input class="form-check-input" type="radio" name="fruitOrLegume" id="fruitOption" value="fruit">
+                        <label class="form-check-label" for="fruitOption">Fruits</label>
+                    </div>
+                    <div class="form-check form-check-inline m-1" id="labelLegumeOption">
+                        <input class="form-check-input" type="radio" name="fruitOrLegume" id="legumeOption" value="legume">
+                        <label class="form-check-label" for="legumeOption">Legumes</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="button" id="addInputToSpecificList" class="btn btn-primary m-1">Add to specific list</button>
+                    <button type="button" id="addInputToGeneralList" class="btn btn-danger m-1">Add to general list</button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-1 p-3 bg-primary text-white rounded secondSection">
+            <!-- <div id="searchRow" class="m-4 p-2 bg-info text-white rounded"> -->
+            <div class="row" id="searchSection">
+                <div class="col right">
+                    <button type="button" id="seachButton" class="btn btn-info m-1">Search for item</button>
+                    <button type="button" id="deleteButton" class="btn btn-danger m-1">Delete an item</button>
+                </div>
+                <div class="col">
+                    <!-- <label class="form-check-label pb-2" for="searchFruitOrLegume">Search for a Fruits or Legumes</label> -->
+                    <input type="text" class="form-control m-1" id="searchFruitOrLegume" name="searchFruitOrLegume" placeholder="Search for a Fruits or Legumes">
+                </div>
+                <div class="col"></div>
+            </div>
+            <hr>
+            <!-- </div> -->
+            <div class="row">
+                <div class="col">
+                    <h5>List of Fruits</h5>
+                    <div id="leftDiv" class="cssDiv">
+                        <div class="alert alert-info fruits">
+                            Fruits! - Apple
+                        </div>
+                        <div class="alert alert-info fruits">
+                            Fruits! - Mangoes
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <h5>List of Fruits & Legumes</h5>
+                    <div id="middleDiv" class="cssDiv">
+                        <div class="alert alert-primary middleItemsList fruits">
+                            Fruits! - Pineapples
+                        </div>
+                        <div class="alert alert-primary middleItemsList fruits">
+                            Fruits! - Bananas
+                        </div>
+                        <div class="alert alert-primary middleItemsList legumes">
+                            Legumes! - Potato
+                        </div>
+                        <div class="alert alert-primary middleItemsList legumes">
+                            Legumes! - Lentils
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <h5>List of Legumes</h5>
+                    <div id="rightDiv" class="cssDiv">
+                        <div class="alert alert-warning legumes">
+                            Legumes! - Broccoli
+                        </div>
+                        <div class="alert alert-warning legumes">
+                            Legumes! - Green Beans
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>

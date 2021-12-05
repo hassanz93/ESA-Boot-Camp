@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+    
+</head>
+<body>
+
+    <!-- Add list Start -->
+    <h1> To Do List</h1>
+    <br>
+    <h2>Add Items</h2>
+    <p id="sign" style="margin-left: 5rem"></p>
+    <input type="text" id="additems">
+    <button id ="btn" onclick ="addItems()">Submit</button>
+    <br>
+    <h2>Tasks</h2>
+     <!-- Add list End -->
+
+
+     <!-- Table Start -->
+    <table id = "main">
+
+    </table>
+    <!-- Table End -->
+
+<script>
+  let signal = document.getElementById("sign");
+  let currentCell = null;                                        
+
+  function showSignal() {                                        // function to confirm edit with signal
+    signal.textContent = "Edit Confirmed"                        // display text "Edit Confirmed"
+    document.getElementById("sign").style.color = "chartreuse";  // give color
+    document.getElementById("sign").style.fontWeight = "bold";   // give style font
+  }
+
+  function addItems(){                                        // function to add rows and insert the data
+    signal.textContent = "";                                  // remove signal
+    var item = document.getElementById("additems").value;     // add item from text box
+    var table1 = document.getElementById("main");             // determine table
+    var row1 = table1.insertRow(0);                           // insert row
+    cell1 = row1.insertCell(0);                               // insert cell
+    cell1.innerHTML = item;                                   // add item from text box to cell
+    var cell2 = row1.insertCell(1);                           // insert 2nd cell
+    cell2.innerHTML = `<button class="green" id="btn1" onclick = "editButton()">Edit</button>
+                       <button class="red" id="btn1" onclick = "deleteRow()">Delete</button>`  // add edit and delete button to 2nd cell
+                     }
+
+  function deleteRow() {                          // function to deleter row     
+    signal.textContent = "";                      // remove signal
+    var td = event.target.parentNode;             // find td of the cell
+    var tr = td.parentNode;                       // dind tr of the td
+    tr.parentNode.removeChild(tr);                // remove row of the chosen tr
+                       }
+
+  function editButton(){                          // function to copy string to edit and locate row and cell to change to new text later
+    signal.textContent = "";                      // remove signal
+    var btn = document.getElementById("btn");    
+    btn.value = 'Submit';                          
+    btn.innerHTML = 'Edit';                       // change text from 'Sumbit' to 'Edit'
+    var table = document.getElementById('main');  // determine table
+    document.getElementById('btn').setAttribute('onclick','saveCell()')  // change onclick from addItems() to saveCell()         
+      for(let i = 0; i < table.rows.length; i++)
+          {
+            table.rows[i].onclick = function()                                     // execute function on click
+            {
+              currentCell = table.rows[i].querySelector('td');                       // determine cell of the td of the table
+              document.getElementById("additems").value = this.cells[0].innerHTML;     
+              };
+          }             
+                       }
+  
+  function saveCell() {                                                   // function to edit cell to new text
+    var btn = document.getElementById("btn");                             
+    btn.value = 'Edit';                                                   // chose 'Edit' text to change
+    btn.innerHTML = 'Sumbit';                                             // change button text to 'Sumbit'
+    document.getElementById('btn').setAttribute('onclick','addItems()')   // change onclick from saveCell() to addItems()
+    const newValue = document.getElementById("additems").value;           // get the string of the new text
+    currentCell.innerText = newValue;                                     // replace the previous text with the new text
+    showSignal();                                                         // show the signal when edditing
+  }
+    </script>
+    
+</body>
+</html>

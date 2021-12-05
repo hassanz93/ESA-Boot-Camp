@@ -1,0 +1,45 @@
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <table rules =all class = "center">
+        <tr>
+           <td colspan = "4">
+            <h3 >Calculator</h3>
+           </td>
+        </tr>
+        <tr>
+            <td colspan = "2">
+        <h3>First Number</h3> </td>
+            <td colspan = "2">
+        <input name="num1" type="text" onfocus="this.value=''" id="num1-el">
+            </td>
+        </tr>
+        <tr>
+            <td colspan = "2">
+        <h3>Second Number</h3></td>
+        <td colspan = "2">
+            <input name="num2" type="text" onfocus="this.value=''" id="num2-el">
+            </td>
+        </tr>
+        <tr>
+            <td colspan = "4"> 
+                <h3>Operations</h3>
+            </td>
+        </tr>
+        <tr>
+        <td><button onclick = "add()">Add</button></td>
+        <td><button onclick = "subtract()">Subtract</button></td>
+        <td><button onclick = "divide()">Divide</button></td>
+        <td><button onclick = "multiply()">Multiply</button></td>
+        </tr>
+        <tr>
+            <td colspan = "4">
+        <h3 id="sum-el">Sum: </h3>
+            </td>
+       </tr>
+        </table>
+        <script src="index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+table {
+    border: 2px solid black;
+}
+
+.center {
+    margin: auto auto;
+}
+
+div {
+    text-align: center;
+    
+}
+button {
+    size: 
+    margin: 5px 5px;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 8px;
+}
+
+h3 {
+    text-align: center;
+    margin: 8px 5px;
+}
