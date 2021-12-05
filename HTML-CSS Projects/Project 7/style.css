@@ -1,0 +1,126 @@
+
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color:white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.heading1 h1{
+    font-size: 2.5rem;
+    font-weight:400;
+    width: 400px;
+    color: White;
+    text-align: center;
+    position: relative;
+    bottom: 10px;
+    left: 115px;
+
+}
+.heading1 h3{
+     font-size: 1.25rem;
+    font-weight:300;
+    color: #EBF7E3 ;
+    text-align: center;
+    position: relative;
+    left: 115px;    
+    bottom: 10px; }
+
+.heading2 h1{
+     font-size: 2.5rem;
+    font-weight:400;
+    width: 400px;
+    color: #66B032;
+    text-align: center;
+    position: relative;
+    top: 10px;
+    left: 115px;
+    }
+
+.heading2 h3{
+     font-size: rem;
+     font-weight:300;
+    color: #66B032 ;
+    text-align: center;
+    position: relative;
+    left: 115px; 
+    top: 10px;
+     }
+
+.logos {text-align: center;
+    position: relative;
+    left: 115px;    
+    left: 115px; 
+    top: 10px;
+}
+
+     .btn{
+        width: 175px;
+        height: 50px;
+        position: relative;
+        left: 115px;
+        bottom: 10px;
+        background-color:#66B032;
+        border-color:#EBF7E3;
+        color:#EBF7E3 ;
+        border-radius: 17px;   
+        border-width: 5px;   
+       
+}
+
+.container1{
+    width: 30%;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-110%,-50%);
+    height: 90vh;
+    background-color: #66B032; 
+    display: flex;
+    box-shadow: 5px 10px 38px rgba(0,0,0,0,2);
+    margin-bottom: 25%;
+}
+
+.container2{
+    width: 30%;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-10%,-50%);
+    height: 90vh;
+    background-color: #EBF7E3; 
+    display: flex;
+    box-shadow: 5px 10px 38px rgba(0,0,0,0,2);
+    margin-bottom: 25%;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;   
+}
+
+  .form__input {
+    color:grey;
+    font-size: 20px;
+    padding: 0%;
+    margin-left: 50px;
+    border:0.3px;
+    border-style:solid ;
+    border-color: rgba(255, 255, 255, 0.267);
+    background-color:rgba(192, 192, 192, 0.5);
+    width: 170%;
+    height: 40px;
+    position: relative; 
+  }
+
+  .f1{
+      width:180px;
+      height:50px;
+      
+  }
+ 

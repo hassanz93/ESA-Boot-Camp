@@ -1,0 +1,116 @@
+*{
+    box-sizing:border-box;
+}
+
+body{
+    background-color:rgb(226, 229, 229);
+    color:#000000;
+    font-family: Arial;
+    }
+
+    .body{
+        background-color: white;
+        margin: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-top:50px;
+        margin-bottom: 50px;
+        width: 80%;
+    }
+    .head{
+        color:black;
+        margin-left: 4%;
+        margin-top:30px;
+        margin-bottom:30px;
+        position: relative;
+        right:27px;
+    }
+
+    .table1{
+        width: 100%;
+        border:1px solid rgb(0, 0, 0);
+        border-collapse: collapse;
+        font-size: 15px;
+        height: 50px;
+        position: relative;
+        right:12px;
+    }
+
+    .table2{
+       font-size: 15px;
+        border-collapse: collapse;
+        width: 95%;
+        margin-left:5%;
+        position: relative;
+        right:20px;
+    }
+
+    .table1 td{
+        padding-left: 30px;
+    }
+
+    .table2 td{
+        width:33.3%;
+        padding-bottom: 30px;
+        vertical-align: top;
+    }
+    .input{
+        margin-top: 5px;
+        width:90%;
+        border:1px solid #d5dadf;
+        height: 40px;
+        background-color: transparent;
+        padding-left: 7px ;
+        color: black;
+    }
+    .sec1{
+        margin-top: 5px;
+        width:92%;
+        border:1px solid #d5dadf;
+        height: 40px;
+        background-color: transparent;
+        padding-left: 7px ;
+        color: black;
+    }
+
+    .sec2{
+        width: 47%;
+        float: left;
+    }
+
+    .button1{
+        width:80px;
+        height: 40px;
+        margin-top:10px;
+    }
+
+    .back{
+        background-color: #d5dadf70;
+        width: 94%;
+        height: 50px;
+    }
+    .t1{
+        font-size: 12px;
+        margin-left: 4%;
+        
+    }
+
+    .button2{
+        font-size: 20px;
+        width:180px;
+        height:40px;
+        border-radius: 5px;
+        background-color: #dd4c24;
+        color: white;  
+    }
+
+    .button3{
+        font-size: 20px;
+        width:220px;
+        height:40px;
+        border-radius: 5px;
+        background-color: rgb(96, 185, 44);
+        color: white;
+        
+    }
+

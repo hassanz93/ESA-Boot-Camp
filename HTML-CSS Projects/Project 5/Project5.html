@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel ="stylesheet" href="style.css">
+
+</head>
+
+<body> 
+    <div class='body'>
+    <div class="head">
+    <h1 class="head">Agent Registration</h1>
+
+    <table class="table1">
+    <td><INPUT TYPE="radio" Name="Browser" Value ="1" checked>&nbsp;&nbsp;Personal Details</td>
+    <td><INPUT TYPE="radio" Name="Browser" Value="2"checked>&nbsp;&nbsp;Agency Details</td>
+    <td><INPUT TYPE="radio" Name="Browser" Value="3"checked>&nbsp;&nbsp;Conatct Personal Information</td>
+    <td><INPUT TYPE="radio" Name="Browser" Value="4"checked>&nbsp;&nbsp;Work Order Scope</td>
+    </div>
+
+</table>
+    <h3 class="head"> Profile Information</h4>
+    <body ></body>
+        <table class="table2">
+        <tr>
+            <td>Agent Name*<div><input class="input" type="text/" placeholder="">
+            <td> Agent Type* <div><SELECT class="sec1">
+                <OPTION Value="Agent">Agent</OPTION>
+                <OPTION Value="Client">Client</OPTION>
+                <OPTION Value="Employee">Employee</OPTION>
+                <OPTION Value="Student">Student</OPTION>
+                </SELECT> </td>
+            <td>Password*<div><input class="sec1" type="password" placeholder=""></td>
+        </tr>
+
+        <tr>
+            <td>Address*<div><input class="input" type="text/" placeholder=""></td>
+            <td> <div class='sec2'>
+                    <label for="city">City*</label>
+                    <input class="input" type="text" name="city"/>
+                </div>
+                <div class='sec2'>
+                    <label for="state">State*</label>
+                    <input class="input" type="text" name="state"/>
+                </div></td>
+            <td>Telephone Number*<div><input class="input" type="text/" placeholder=""></td>
+        </tr>
+
+        <tr>
+            <td>Toll-Free-Number*<div><input class="input" type="text/" placeholder=""></td>
+            <td>Email ID*<div><input class="input" type="text/" placeholder=""></td>
+            <td>Website*<div><input class="input" type="text/" placeholder=""></td>
+        </tr>
+
+        <tr>
+            <td>Date of Birth* <div><input class="input" type="date" id="start" name="trip-start"min="1920-01-01" max="2022-01-01"></td>
+                <td class='difi'>
+                    <label for="email">Office Space</label>
+                    <div class="back">
+                        <div class='sec2' style='padding-left: 5px;padding-top: 15px;'>
+                            <input type="radio" name="difi" checked /> Owned
+                        </div>
+                        <div class='sec2' style='padding-left: 5px;padding-top: 15px;'>
+                            <input type="radio" name="difi" /> Rental
+                        </div>
+                    </div>
+                </td>
+            <td> <label for="logo">Company Logo*</label>
+                <div class="back">
+                    <input class="input" type="file" name="logo"  />
+                </div></td>
+        </tr>
+    </table>
+    <h6 style="padding-left: 30px;">In order to process your registration, we ask you to provide the following information. Please note that fields marked with asterisk(*) are required.</h6>
+    <div style="text-align:right; padding-right:3%;">
+        <button class="button2">Cancel</button>
+        <button class="button3">Continue ----></button>
+    </div>
+</div>
+
+    </body>
+
+    </html>
